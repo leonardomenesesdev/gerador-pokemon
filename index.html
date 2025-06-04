@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador Pokemon</title>
+</head>
+<body>
+    <form>
+        <label for="pokemonNumber">Digite um número e veja o pokemon</label>
+        <input type="number" id="pokemonNumber">
+        <button onclick="gerarPokemon(event)">Veja o pokemon</button>
+    </form>
+    <div id="img-div"></div>
+    <script>
+        function gerarPokemon(event){
+            event.preventDefault()
+            let pokemonNumber = document.getElementById('pokemonNumber').value
+            let img = document.createElement("img")
+            let baseUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonNumber}.png`
+            img.src = baseUrl
+            let div = document.getElementById("img-div")
+            div.appendChild(img)
+            console.log(baseUrl)
+        } 
+    </script>
+</body>
+</html>
